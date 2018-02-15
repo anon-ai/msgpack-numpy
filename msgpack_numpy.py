@@ -132,14 +132,16 @@ else:
                      unicode_errors='strict',
                      use_single_float=False,
                      autoreset=1,
-                     use_bin_type=0):
+                     use_bin_type=0,
+                     strict_types=False):
             default = functools.partial(encode, chain=default)
             super(Packer, self).__init__(default=default,
                                          encoding=encoding,
                                          unicode_errors=unicode_errors,
                                          use_single_float=use_single_float,
                                          autoreset=autoreset,
-                                         use_bin_type=use_bin_type)
+                                         use_bin_type=use_bin_type,
+                                         strict_types=strict_types)
 
     class Unpacker(_unpacker.Unpacker):
         def __init__(self, file_like=None, read_size=0, use_list=None,
